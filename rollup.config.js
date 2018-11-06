@@ -36,7 +36,7 @@ const config = {
             }
         }),
     ],
-    external: id => new RegExp(`^(?:${peerDependencies})$`).test(id)
+    external: id => new RegExp(`^(?:${peerDependencies})`).test(id)
 };
 
 if (!dev) {

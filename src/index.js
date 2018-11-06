@@ -11,13 +11,7 @@ const iconDefinitionPropType = PropTypes.oneOfType([
     PropTypes.shape({
         prefix: PropTypes.oneOf(['fas', 'fab', 'far', 'fal']).isRequired,
         iconName: PropTypes.string.isRequired,
-        icon: PropTypes.shape({
-            0: PropTypes.number.isRequired,
-            1: PropTypes.number.isRequired,
-            2: PropTypes.arrayOf(PropTypes.string).isRequired,
-            3: PropTypes.string.isRequired,
-            4: PropTypes.string
-        }),
+        icon: PropTypes.array,
     })
 ]);
 
@@ -38,6 +32,7 @@ export default class NumericUpDown extends Component {
     componentWillUpdate(nextProps, nextState) {
         if (nextState.value !== this.state.value && this.props.onChange) {
             this.props.onChange(nextState.value);
+            return;
         }
 
         let newState,
@@ -103,6 +98,7 @@ export default class NumericUpDown extends Component {
                 plusIcon,
                 disabled,
                 step,
+                inputAlign,
                 ...props
             } = this.props,
             value = this.state.value,
@@ -110,6 +106,15 @@ export default class NumericUpDown extends Component {
             iconClasses = [
                 iconStyles.className,
                 iconColor && `text-${iconColor}`
+            ],
+            divClasses = [
+                'd-flex',
+                'flex-nowrap',
+                'flex-row',
+                'align-items-center',
+                'numeric-up-down',
+                disabled && 'disabled',
+                className,
             ];
 
         if (React.isValidElement(minusIcon)) {
@@ -119,9 +124,10 @@ export default class NumericUpDown extends Component {
 
             minusIcon = React.cloneElement(minusIcon, props);
         } else {
-            minusIcon = 
+            minusIcon = (
                 <FontAwesomeIcon icon={minusIcon} onClick={this._decrementValue}
-                    className={classnames('minus-icon', value <= min && 'disabled', ...iconClasses)} />;
+                    className={classnames('minus-icon', value <= min && 'disabled', ...iconClasses)} />
+            );
         }
 
         if (React.isValidElement(plusIcon)) {
@@ -131,13 +137,14 @@ export default class NumericUpDown extends Component {
 
             plusIcon = React.cloneElement(plusIcon, props);
         } else {
-            plusIcon = 
-                <FontAwesomeIcon icon={minusIcon} onClick={this._incrementValue}
-                    className={classnames('plus-icon', value >= max && 'disabled', ...iconClasses)} />;
+            plusIcon = (
+                <FontAwesomeIcon icon={plusIcon} onClick={this._incrementValue}
+                    className={classnames('plus-icon', value >= max && 'disabled', ...iconClasses)} />
+            );
         }
 
         return (
-        <div className={classnames(className, 'numeric-up-down', disabled && 'disabled')} {...props}>
+        <div className={classnames(divClasses)} {...props}>
             {minusIcon}
             <input className={classnames('form-control mx-2', inputColor && `text-${inputColor}`)} 
                 type="number" min={min} max={max} step={step} value={value} disabled={disabled} 
@@ -145,13 +152,6 @@ export default class NumericUpDown extends Component {
             {plusIcon}
             {iconStyles.styles}
             <style jsx>{`
-                .numeric-up-down {
-                    display: flex;
-                    flex-direction: row;
-                    flex-wrap: nowrap !important;
-                    align-items: center;
-                }
-
                 input {
                     text-align: ${this.props.inputAlign};
                     flex: 1;
@@ -181,7 +181,7 @@ export default class NumericUpDown extends Component {
         inputAlign: PropTypes.oneOf(['left', 'center', 'right']),
     };
 
-    static defaultPropTypes = {
+    static defaultProps = {
         minusIcon: faMinusCircle,
         plusIcon: faPlusCircle,
         value: 0,
@@ -192,7 +192,7 @@ export default class NumericUpDown extends Component {
 }
 
 function getIconStyles() {
-    return css.resolve(`
+    return css.resolve`
         .minus-icon, .plus-icon {
             cursor: pointer;
         }
@@ -202,5 +202,5 @@ function getIconStyles() {
             opacity: .65;
             cursor: inherit;
         }
-    `);
+    `;
 }
