@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { faMinusCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { css } from 'styled-jsx';
+import css from 'styled-jsx/css';
 
 const iconDefinitionPropType = PropTypes.oneOfType([
     PropTypes.string,
