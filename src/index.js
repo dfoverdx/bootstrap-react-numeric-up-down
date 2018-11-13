@@ -50,7 +50,9 @@ export default class NumericUpDown extends Component {
                 };
             }
         } else if (nextProps.min !== value) {
-            newState.value = nextProps.min;
+            newState = {
+                value: nextProps.min
+            };
         }
 
         if (newState) {
