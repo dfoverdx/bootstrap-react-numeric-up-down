@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { faMinusCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon, faMinusCircle, faPlusCircle, mightBeFAIcon } from './fortawesome';
 import css from 'styled-jsx/css';
 
 const iconDefinitionPropType = PropTypes.oneOfType([
     PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string),
     PropTypes.element,
     PropTypes.shape({
         prefix: PropTypes.oneOf(['fas', 'fab', 'far', 'fal']).isRequired,
@@ -15,98 +15,126 @@ const iconDefinitionPropType = PropTypes.oneOfType([
     })
 ]);
 
-export default class NumericUpDown extends Component {
+export default class NumericUpDown extends PureComponent {
     constructor(props) {
         super(props);
 
+        this.input = React.createRef();
+        this.recursiveUpdates = 0;
+
         this.state = {
-            value: this.props.value || this.props.min || 0,
-            targetValue: null
+            targetValue: null,
         };
 
         this._incrementValue = this._incrementValue.bind(this);
         this._decrementValue = this._decrementValue.bind(this);
-        this._handleChange = this._handleChange.bind(this);
     }
 
-    componentWillUpdate(nextProps, nextState) {
-        if (nextState.value !== this.state.value && this.props.onChange) {
-            this.props.onChange(nextState.value);
+    componentDidUpdate(oldProps) {
+        let {
+                min,
+                max,
+                value,
+            } = this.props,
+            {
+                min: oldMin,
+                max: oldMax,
+                value: oldValue,
+            } = oldProps,
+            target = this.state.targetValue;
+
+        if (target !== null) {
+            if (value !== oldValue && this.recursiveUpdates === 0) {
+                // user changed value manually
+                this.setState({
+                    targetValue: null
+                });
+            } else if (min !== oldMin && min <= target && oldMin > target || 
+                       max !== oldMax && max >= target && oldMax < target) {
+                this._updateValue(target);
+                this.setState({
+                    targetValue: null
+                });
+            }
+        }
+
+        if (oldValue == value && (oldMax !== max || oldMin !== min)) {
+            if (target === null) {
+                if (min > oldValue || max < oldValue) {
+                    this.setState({
+                        targetValue: oldValue
+                    });
+                }
+            }
+
+            if (oldMin !== min && min >= target) {
+                this._updateValue(Math.min(min, max));
+            } else if (oldMax !== max && max <= target) {
+                this._updateValue(Math.max(max, min));
+            } else if (oldMin > oldMax && (min <= value || max >= value)) {
+                if (value < min) {
+                    this._updateValue(min);
+                } else {
+                    this._updateValue(max);
+                }
+            }
+        }
+    }
+
+    _updateValue(val) {
+        if (val === this.props.value) {
             return;
         }
 
-        let newState,
-            value = this.state.value;
-        if (nextProps.min <= nextProps.max) {
-            if (nextProps.min > value) {
-                newState = {
-                    value: nextProps.min,
-                    targetValue: value
-                };
-            } else if (nextProps.max < value) {
-                newState = {
-                    value: nextProps.max,
-                    targetValue: value,
-                };
+        if (!this.props.onChange) {
+            if (this.props.value === undefined) {
+                this.input.current.value = val;
             }
-        } else if (nextProps.min !== value) {
-            newState = {
-                value: nextProps.min
-            };
-        }
-
-        if (newState) {
-            this.setState(newState);
+        } else {
+            this.recursiveUpdates++;
+            this.props.onChange(val);
+            this.recursiveUpdates--;
         }
     }
 
     _incrementValue() {
         if (!this.props.disabled) {
             this.setState({
-                value: Math.min(this.props.max, this.state.value + this.props.step),
-                targetValue: null,
+                targetValue: null
             });
+            this._updateValue(Math.min(this.props.max, this.props.value + this.props.step));
         }
     }
 
     _decrementValue() {
         if (!this.props.disabled) {
             this.setState({
-                value: Math.max(this.props.min, this.state.value - this.props.step),
-                targetValue: null,
+                targetValue: null
             });
-        }
-    }
-
-    _handleChange(e) {
-        let val = parseInt(e.target.value);
-        if (!isNaN(val)) {
-            this.setState({
-                value: Math.min(this.props.max, Math.max(this.props.min, val)),
-                targetValue: null,
-            });
+            this._updateValue(Math.max(this.props.min, this.props.value - this.props.step));
         }
     }
 
     render() {
         let {
-                min,
-                max,
-                onChange,
                 iconColor,
                 inputColor,
                 className,
                 minusIcon,
                 plusIcon,
-                disabled,
-                step,
                 inputAlign,
-                ...props
+                allowManualInputWithNaNBounds,
+                ...inputProps
             } = this.props,
-            value = this.state.value,
-            iconStyles = getIconStyles(),
+            {
+                value,
+                min,
+                max,
+                disabled,
+            } = inputProps,
+            { className: iconClass, styles: iconStyles } = getIconStyles(),
             iconClasses = [
-                iconStyles.className,
+                iconClass,
                 iconColor && `text-${iconColor}`
             ],
             divClasses = [
@@ -119,40 +147,68 @@ export default class NumericUpDown extends Component {
                 className,
             ];
 
+        if (!allowManualInputWithNaNBounds && min > max) {
+            inputProps.disabled = disabled = true;
+        }
+
+        let minusIconClasses = [
+                'minus-icon', 
+                (value <= min || disabled) && 'disabled', 
+                ...iconClasses
+            ],
+            plusIconClasses = [
+                'plus-icon',
+                (value >= max || disabled) && 'disabled',
+                ...iconClasses
+            ];
+
         if (React.isValidElement(minusIcon)) {
             let props = {
-                className: classnames(minusIcon.props.className, 'minus-icon', value <= min && 'disabled', ...iconClasses),
+                className: classnames(minusIcon.props.className, ...minusIconClasses),
             };
 
             minusIcon = React.cloneElement(minusIcon, props);
-        } else {
-            minusIcon = (
-                <FontAwesomeIcon icon={minusIcon} onClick={this._decrementValue}
-                    className={classnames('minus-icon', value <= min && 'disabled', ...iconClasses)} />
-            );
+        } else if (mightBeFAIcon(minusIcon)) {
+            try {
+                let tmp = (
+                    <FontAwesomeIcon icon={minusIcon} onClick={this._decrementValue} 
+                        className={classnames(minusIconClasses)} />
+                );
+                minusIcon = tmp;
+            } catch {}
+        }
+
+        if (minusIcon.constructor === String) {
+            minusIcon = <span className={classnames(minusIconClasses)}>{minusIcon}</span>;
         }
 
         if (React.isValidElement(plusIcon)) {
             let props = {
-                className: classnames(plusIcon.props.className, 'plus-icon', value >= max && 'disabled', ...iconClasses),
+                className: classnames(plusIcon.props.className, ...plusIconClasses),
             };
 
             plusIcon = React.cloneElement(plusIcon, props);
-        } else {
-            plusIcon = (
-                <FontAwesomeIcon icon={plusIcon} onClick={this._incrementValue}
-                    className={classnames('plus-icon', value >= max && 'disabled', ...iconClasses)} />
-            );
+        } else if (mightBeFAIcon(plusIcon)) {
+            try {
+                let tmp = (
+                    <FontAwesomeIcon icon={plusIcon} onClick={this._incrementValue}
+                        className={classnames(plusIconClasses)} />
+                );
+                plusIcon = tmp;
+            } catch {}
+        }
+        
+        if (plusIcon.constructor === String) {
+            plusIcon = <span className={classnames(plusIconClasses)}>{plusIcon}</span>;
         }
 
         return (
-        <div className={classnames(divClasses)} {...props}>
+        <div className={classnames(divClasses)} {...inputProps}>
             {minusIcon}
-            <input className={classnames('form-control mx-2', inputColor && `text-${inputColor}`)} 
-                type="number" min={min} max={max} step={step} value={value} disabled={disabled} 
-                onChange={this._handleChange} />
+            <input className={classnames('form-control mx-2', inputColor && `text-${inputColor}`)} type="number" 
+                {...inputProps} ref={this.input} />
             {plusIcon}
-            {iconStyles.styles}
+            {iconStyles}
             <style jsx>{`
                 input {
                     text-align: ${this.props.inputAlign};
@@ -181,15 +237,17 @@ export default class NumericUpDown extends Component {
         value: PropTypes.number,
         onChange: PropTypes.func,
         inputAlign: PropTypes.oneOf(['left', 'center', 'right']),
+        allowManualInputWithNaNBounds: PropTypes.bool
     };
 
     static defaultProps = {
-        minusIcon: faMinusCircle,
-        plusIcon: faPlusCircle,
-        value: 0,
+        minusIcon: (FontAwesomeIcon && faMinusCircle) ? faMinusCircle : '-',
+        plusIcon: (FontAwesomeIcon && faPlusCircle) ? faPlusCircle : '+',
         min: 0,
+        max: Infinity,
         step: 1,
         inputAlign: 'center',
+        allowManualInputWithNaNBounds: false,
     };
 }
 
