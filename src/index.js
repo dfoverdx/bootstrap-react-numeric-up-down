@@ -227,7 +227,7 @@ export default class NumericUpDown extends PureComponent {
 
     static propTypes = {
         inputColor: PropTypes.string,
-        btnColor: PropTypes.string,
+        iconColor: PropTypes.string,
         min: PropTypes.number,
         max: PropTypes.number,
         step: PropTypes.number,
@@ -260,7 +260,7 @@ function getIconStyles() {
         .minus-icon.disabled, .plus-icon.disabled, 
         .disabled .minus-icon, .disabled .plus-icon {
             opacity: .65;
-            cursor: inherit;
+            cursor: default;
         }
     `;
 }

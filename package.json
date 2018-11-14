@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-react-numeric-up-down",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A numeric-up-down control for react with bootstrap styling",
   "main": "index.js",
   "scripts": {

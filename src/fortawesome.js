@@ -1,10 +1,15 @@
 const optionalRequire = require("optional-require")(require),
     reactFontAwesome = optionalRequire('@fortawesome/react-fontawesome'),
+    core = optionalRequire('@fortawesome/fontawesome-svg-core'),
     fas = optionalRequire('@fortawesome/free-solid-svg-icons');
 
 export const FontAwesomeIcon = reactFontAwesome && reactFontAwesome.FontAwesomeIcon,
     faMinusCircle = fas && fas.faMinusCircle, 
     faPlusCircle = fas && fas.faPlusCircle;
+
+if (core) {
+    core.library.add(fas.faMinusCircle, fas.faPlusCircle);
+}
 
 const IconDefElTypes = [
     Number,
