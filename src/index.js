@@ -165,6 +165,7 @@ export default class NumericUpDown extends PureComponent {
         if (React.isValidElement(minusIcon)) {
             let props = {
                 className: classnames(minusIcon.props.className, ...minusIconClasses),
+                onClick: this._decrementValue,
             };
 
             minusIcon = React.cloneElement(minusIcon, props);
@@ -179,12 +180,13 @@ export default class NumericUpDown extends PureComponent {
         }
 
         if (minusIcon.constructor === String) {
-            minusIcon = <span className={classnames(minusIconClasses)}>{minusIcon}</span>;
+            minusIcon = <span onClick={this._decrementValue} className={classnames(minusIconClasses)}>{minusIcon}</span>;
         }
 
         if (React.isValidElement(plusIcon)) {
             let props = {
                 className: classnames(plusIcon.props.className, ...plusIconClasses),
+                onClick: this._incrementValue,
             };
 
             plusIcon = React.cloneElement(plusIcon, props);
@@ -199,7 +201,7 @@ export default class NumericUpDown extends PureComponent {
         }
         
         if (plusIcon.constructor === String) {
-            plusIcon = <span className={classnames(plusIconClasses)}>{plusIcon}</span>;
+            plusIcon = <span onClick={this._incrementValue} className={classnames(plusIconClasses)}>{plusIcon}</span>;
         }
 
         return (
@@ -241,8 +243,8 @@ export default class NumericUpDown extends PureComponent {
     };
 
     static defaultProps = {
-        minusIcon: (FontAwesomeIcon && faMinusCircle) ? faMinusCircle : '-',
-        plusIcon: (FontAwesomeIcon && faPlusCircle) ? faPlusCircle : '+',
+        minusIcon: faMinusCircle, // (FontAwesomeIcon && faMinusCircle) ? faMinusCircle : '-',
+        plusIcon: faPlusCircle, // (FontAwesomeIcon && faPlusCircle) ? faPlusCircle : '+',
         min: 0,
         max: Infinity,
         step: 1,

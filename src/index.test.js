@@ -96,13 +96,13 @@ describe('icon props', () => {
         fortawesome.__setReactFontawesomeInstalled(true);
     });
 
-    it(`uses '+' and '-' characters by default when react-fontawesome is not installed`, () => {
-        fortawesome.__setReactFontawesomeInstalled(false);
-        const NUD = require('./index').default;
-        let nud = renderer.create(<NUD value={0} />),
-            tree = nud.toJSON();
-        expect(tree).toMatchSnapshot();
-    });
+    // it(`uses '+' and '-' characters by default when react-fontawesome is not installed`, () => {
+    //     fortawesome.__setReactFontawesomeInstalled(false);
+    //     const NUD = require('./index').default;
+    //     let nud = renderer.create(<NUD value={0} />),
+    //         tree = nud.toJSON();
+    //     expect(tree).toMatchSnapshot();
+    // });
     
     it(`uses faPlusCircle and faMinusCircle by default when react-fontawesome and free-solid-svg-icons are installed`, () => {
         const NUD = require('./index').default;

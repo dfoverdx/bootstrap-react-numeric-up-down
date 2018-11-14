@@ -10,7 +10,7 @@ exports[`icon props handles font-awesome strings for icons when specified in pro
 >
   <svg
     aria-hidden="true"
-    className="svg-inline--fa fa-user-minus fa-w-20 minus-icon disabled jsx-3140308683"
+    className="svg-inline--fa fa-user-minus fa-w-20 minus-icon disabled jsx-1158657347"
     data-icon="user-minus"
     data-prefix="fas"
     onClick={[Function]}
@@ -35,7 +35,7 @@ exports[`icon props handles font-awesome strings for icons when specified in pro
   />
   <svg
     aria-hidden="true"
-    className="svg-inline--fa fa-user-plus fa-w-20 plus-icon jsx-3140308683"
+    className="svg-inline--fa fa-user-plus fa-w-20 plus-icon jsx-1158657347"
     data-icon="user-plus"
     data-prefix="fas"
     onClick={[Function]}
@@ -53,59 +53,6 @@ exports[`icon props handles font-awesome strings for icons when specified in pro
 </div>
 `;
 
-exports[`icon props uses '+' and '-' characters by default when react-fontawesome is not installed 1`] = `
-<div
-  className="jsx-3892955365 d-flex flex-nowrap flex-row align-items-center numeric-up-down"
-  max={Infinity}
-  min={0}
-  step={1}
-  value={0}
->
-  <svg
-    aria-hidden="true"
-    className="svg-inline--fa fa-minus-circle fa-w-16 minus-icon disabled jsx-3140308683"
-    data-icon="minus-circle"
-    data-prefix="fas"
-    onClick={[Function]}
-    role="img"
-    style={Object {}}
-    viewBox="0 0 512 512"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
-      fill="currentColor"
-      style={Object {}}
-    />
-  </svg>
-  <input
-    className="jsx-3892955365 form-control mx-2"
-    max={Infinity}
-    min={0}
-    step={1}
-    type="number"
-    value={0}
-  />
-  <svg
-    aria-hidden="true"
-    className="svg-inline--fa fa-plus-circle fa-w-16 plus-icon jsx-3140308683"
-    data-icon="plus-circle"
-    data-prefix="fas"
-    onClick={[Function]}
-    role="img"
-    style={Object {}}
-    viewBox="0 0 512 512"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"
-      fill="currentColor"
-      style={Object {}}
-    />
-  </svg>
-</div>
-`;
-
 exports[`icon props uses faPlusCircle and faMinusCircle by default when react-fontawesome and free-solid-svg-icons are installed 1`] = `
 <div
   className="jsx-3892955365 d-flex flex-nowrap flex-row align-items-center numeric-up-down"
@@ -116,7 +63,7 @@ exports[`icon props uses faPlusCircle and faMinusCircle by default when react-fo
 >
   <svg
     aria-hidden="true"
-    className="svg-inline--fa fa-minus-circle fa-w-16 minus-icon disabled jsx-3140308683"
+    className="svg-inline--fa fa-minus-circle fa-w-16 minus-icon disabled jsx-1158657347"
     data-icon="minus-circle"
     data-prefix="fas"
     onClick={[Function]}
@@ -141,7 +88,7 @@ exports[`icon props uses faPlusCircle and faMinusCircle by default when react-fo
   />
   <svg
     aria-hidden="true"
-    className="svg-inline--fa fa-plus-circle fa-w-16 plus-icon jsx-3140308683"
+    className="svg-inline--fa fa-plus-circle fa-w-16 plus-icon jsx-1158657347"
     data-icon="plus-circle"
     data-prefix="fas"
     onClick={[Function]}
@@ -169,7 +116,7 @@ exports[`icon props uses specified fontawesome icons when react-fontawesome and 
 >
   <svg
     aria-hidden="true"
-    className="svg-inline--fa fa-user-minus fa-w-20 minus-icon disabled jsx-3140308683"
+    className="svg-inline--fa fa-user-minus fa-w-20 minus-icon disabled jsx-1158657347"
     data-icon="user-minus"
     data-prefix="fas"
     onClick={[Function]}
@@ -194,7 +141,7 @@ exports[`icon props uses specified fontawesome icons when react-fontawesome and 
   />
   <svg
     aria-hidden="true"
-    className="svg-inline--fa fa-user-plus fa-w-20 plus-icon jsx-3140308683"
+    className="svg-inline--fa fa-user-plus fa-w-20 plus-icon jsx-1158657347"
     data-icon="user-plus"
     data-prefix="fas"
     onClick={[Function]}
