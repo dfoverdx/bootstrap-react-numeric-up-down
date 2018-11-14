@@ -26,6 +26,10 @@ export default class NumericUpDown extends PureComponent {
             targetValue: null,
         };
 
+        if (props.value < props.min || props.value > props.max) {
+            this.state.targetValue = props.value;
+        }
+
         this._incrementValue = this._incrementValue.bind(this);
         this._decrementValue = this._decrementValue.bind(this);
     }
@@ -55,6 +59,8 @@ export default class NumericUpDown extends PureComponent {
                 this.setState({
                     targetValue: null
                 });
+
+                return;
             }
         }
 

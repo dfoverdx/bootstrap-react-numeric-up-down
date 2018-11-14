@@ -88,6 +88,23 @@ it('restores the target value when the target fits the range', () => {
     expect(nud.state().targetValue).toBeNull();
 });
 
+it('restores a value if original props have empty range', () => {
+    let nud,
+        onChange = sinon.spy(v => nud.setProps({ value: v }));
+
+    nud = shallow(
+        <NumericUpDown type="number" min={1} max={0} value={1} onChange={onChange} />
+    );
+
+    expect(nud.props().value).toBe(1);
+    expect(nud.state().targetValue).toBe(1);
+
+    nud.setProps({ max: 3 });
+    expect(onChange.notCalled).toBe(true);
+    expect(nud.props().value).toBe(1);
+    expect(nud.state().targetValue).toBeNull();
+});
+
 describe('icon props', () => {
     const fortawesome = require('./fortawesome');
 
