@@ -3,9 +3,6 @@
 //     core = optionalRequire('@fortawesome/fontawesome-svg-core'),
 //     fas = optionalRequire('@fortawesome/free-solid-svg-icons');
 
-export { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-export { faMinusCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
-
 // export const FontAwesomeIcon = reactFontAwesome && reactFontAwesome.FontAwesomeIcon,
 //     faMinusCircle = fas && fas.faMinusCircle, 
 //     faPlusCircle = fas && fas.faPlusCircle;

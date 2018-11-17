@@ -1,160 +1,1296 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`icon props handles font-awesome strings for icons when specified in properties 1`] = `
+exports[`handles font-awesome strings for icons when specified in properties 1`] = `
 <div
   className="jsx-3892955365 d-flex flex-nowrap flex-row align-items-center numeric-up-down"
-  max={Infinity}
-  min={0}
   step={1}
-  value={0}
 >
-  <svg
-    aria-hidden="true"
-    className="svg-inline--fa fa-user-minus fa-w-20 minus-icon disabled jsx-1158657347"
-    data-icon="user-minus"
-    data-prefix="fas"
+  <FontAwesomeIcon
+    border={false}
+    className="minus-icon jsx-1158657347"
+    fixedWidth={false}
+    flip={null}
+    icon="user-minus"
+    inverse={false}
+    listItem={false}
+    mask={null}
     onClick={[Function]}
-    role="img"
-    style={Object {}}
-    viewBox="0 0 640 512"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M624 208H432c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h192c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-400 48c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
-      fill="currentColor"
-      style={Object {}}
-    />
-  </svg>
+    pull={null}
+    pulse={false}
+    rotation={null}
+    size={null}
+    spin={false}
+    symbol={false}
+    title=""
+    transform={null}
+  />
   <input
     className="jsx-3892955365 form-control mx-2"
-    max={Infinity}
-    min={0}
-    step={1}
     type="number"
     value={0}
   />
-  <svg
-    aria-hidden="true"
-    className="svg-inline--fa fa-user-plus fa-w-20 plus-icon jsx-1158657347"
-    data-icon="user-plus"
-    data-prefix="fas"
+  <FontAwesomeIcon
+    border={false}
+    className="plus-icon jsx-1158657347"
+    fixedWidth={false}
+    flip={null}
+    icon="user-plus"
+    inverse={false}
+    listItem={false}
+    mask={null}
     onClick={[Function]}
-    role="img"
-    style={Object {}}
-    viewBox="0 0 640 512"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M624 208h-64v-64c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v64h-64c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h64v64c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-64h64c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-400 48c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
-      fill="currentColor"
-      style={Object {}}
-    />
-  </svg>
+    pull={null}
+    pulse={false}
+    rotation={null}
+    size={null}
+    spin={false}
+    symbol={false}
+    title=""
+    transform={null}
+  />
+  <JSXStyle
+    css=".minus-icon.jsx-1158657347,.plus-icon.jsx-1158657347{cursor:pointer;}.minus-icon.disabled.jsx-1158657347,.plus-icon.disabled.jsx-1158657347,.disabled.jsx-1158657347 .minus-icon.jsx-1158657347,.disabled.jsx-1158657347 .plus-icon.jsx-1158657347{opacity:.65;cursor:default;}"
+    styleId="1158657347"
+  />
+  <JSXStyle
+    css="input.__jsx-style-dynamic-selector{text-align:center;-webkit-flex:1;-ms-flex:1;flex:1;-moz-appearance:textfield;}input.__jsx-style-dynamic-selector::-webkit-outer-spin-button,input.__jsx-style-dynamic-selector::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}"
+    dynamic={
+      Array [
+        "center",
+      ]
+    }
+    styleId="2780546048"
+  />
 </div>
 `;
 
-exports[`icon props uses faPlusCircle and faMinusCircle by default when react-fontawesome and free-solid-svg-icons are installed 1`] = `
+exports[`handles the disabled property 1`] = `
 <div
-  className="jsx-3892955365 d-flex flex-nowrap flex-row align-items-center numeric-up-down"
-  max={Infinity}
-  min={0}
+  className="jsx-3892955365 d-flex flex-nowrap flex-row align-items-center numeric-up-down disabled"
   step={1}
-  value={0}
 >
-  <svg
-    aria-hidden="true"
-    className="svg-inline--fa fa-minus-circle fa-w-16 minus-icon disabled jsx-1158657347"
-    data-icon="minus-circle"
-    data-prefix="fas"
+  <FontAwesomeIcon
+    border={false}
+    className="minus-icon jsx-1158657347 disabled"
+    fixedWidth={false}
+    flip={null}
+    icon={
+      Object {
+        "icon": Array [
+          512,
+          512,
+          Array [],
+          "f056",
+          "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z",
+        ],
+        "iconName": "minus-circle",
+        "prefix": "fas",
+      }
+    }
+    inverse={false}
+    listItem={false}
+    mask={null}
     onClick={[Function]}
-    role="img"
-    style={Object {}}
-    viewBox="0 0 512 512"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
-      fill="currentColor"
-      style={Object {}}
-    />
-  </svg>
+    pull={null}
+    pulse={false}
+    rotation={null}
+    size={null}
+    spin={false}
+    symbol={false}
+    title=""
+    transform={null}
+  />
   <input
     className="jsx-3892955365 form-control mx-2"
-    max={Infinity}
-    min={0}
-    step={1}
+    disabled={true}
     type="number"
     value={0}
   />
-  <svg
-    aria-hidden="true"
-    className="svg-inline--fa fa-plus-circle fa-w-16 plus-icon jsx-1158657347"
-    data-icon="plus-circle"
-    data-prefix="fas"
+  <FontAwesomeIcon
+    border={false}
+    className="plus-icon jsx-1158657347 disabled"
+    fixedWidth={false}
+    flip={null}
+    icon={
+      Object {
+        "icon": Array [
+          512,
+          512,
+          Array [],
+          "f055",
+          "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z",
+        ],
+        "iconName": "plus-circle",
+        "prefix": "fas",
+      }
+    }
+    inverse={false}
+    listItem={false}
+    mask={null}
     onClick={[Function]}
-    role="img"
-    style={Object {}}
-    viewBox="0 0 512 512"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"
-      fill="currentColor"
-      style={Object {}}
-    />
-  </svg>
+    pull={null}
+    pulse={false}
+    rotation={null}
+    size={null}
+    spin={false}
+    symbol={false}
+    title=""
+    transform={null}
+  />
+  <JSXStyle
+    css=".minus-icon.jsx-1158657347,.plus-icon.jsx-1158657347{cursor:pointer;}.minus-icon.disabled.jsx-1158657347,.plus-icon.disabled.jsx-1158657347,.disabled.jsx-1158657347 .minus-icon.jsx-1158657347,.disabled.jsx-1158657347 .plus-icon.jsx-1158657347{opacity:.65;cursor:default;}"
+    styleId="1158657347"
+  />
+  <JSXStyle
+    css="input.__jsx-style-dynamic-selector{text-align:center;-webkit-flex:1;-ms-flex:1;flex:1;-moz-appearance:textfield;}input.__jsx-style-dynamic-selector::-webkit-outer-spin-button,input.__jsx-style-dynamic-selector::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}"
+    dynamic={
+      Array [
+        "center",
+      ]
+    }
+    styleId="2780546048"
+  />
 </div>
 `;
 
-exports[`icon props uses specified fontawesome icons when react-fontawesome and free-solid-svg-icons are installed 1`] = `
+exports[`uses faPlusCircle and faMinusCircle by default when react-fontawesome and free-solid-svg-icons are installed 1`] = `
 <div
   className="jsx-3892955365 d-flex flex-nowrap flex-row align-items-center numeric-up-down"
-  max={Infinity}
-  min={0}
   step={1}
-  value={0}
 >
-  <svg
-    aria-hidden="true"
-    className="svg-inline--fa fa-user-minus fa-w-20 minus-icon disabled jsx-1158657347"
-    data-icon="user-minus"
-    data-prefix="fas"
+  <FontAwesomeIcon
+    border={false}
+    className="minus-icon jsx-1158657347"
+    fixedWidth={false}
+    flip={null}
+    icon={
+      Object {
+        "icon": Array [
+          512,
+          512,
+          Array [],
+          "f056",
+          "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z",
+        ],
+        "iconName": "minus-circle",
+        "prefix": "fas",
+      }
+    }
+    inverse={false}
+    listItem={false}
+    mask={null}
     onClick={[Function]}
-    role="img"
-    style={Object {}}
-    viewBox="0 0 640 512"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M624 208H432c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h192c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-400 48c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
-      fill="currentColor"
-      style={Object {}}
-    />
-  </svg>
+    pull={null}
+    pulse={false}
+    rotation={null}
+    size={null}
+    spin={false}
+    symbol={false}
+    title=""
+    transform={null}
+  />
   <input
     className="jsx-3892955365 form-control mx-2"
-    max={Infinity}
-    min={0}
-    step={1}
     type="number"
     value={0}
   />
-  <svg
-    aria-hidden="true"
-    className="svg-inline--fa fa-user-plus fa-w-20 plus-icon jsx-1158657347"
-    data-icon="user-plus"
-    data-prefix="fas"
+  <FontAwesomeIcon
+    border={false}
+    className="plus-icon jsx-1158657347"
+    fixedWidth={false}
+    flip={null}
+    icon={
+      Object {
+        "icon": Array [
+          512,
+          512,
+          Array [],
+          "f055",
+          "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z",
+        ],
+        "iconName": "plus-circle",
+        "prefix": "fas",
+      }
+    }
+    inverse={false}
+    listItem={false}
+    mask={null}
     onClick={[Function]}
-    role="img"
-    style={Object {}}
-    viewBox="0 0 640 512"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M624 208h-64v-64c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v64h-64c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h64v64c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-64h64c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-400 48c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
-      fill="currentColor"
-      style={Object {}}
-    />
-  </svg>
+    pull={null}
+    pulse={false}
+    rotation={null}
+    size={null}
+    spin={false}
+    symbol={false}
+    title=""
+    transform={null}
+  />
+  <JSXStyle
+    css=".minus-icon.jsx-1158657347,.plus-icon.jsx-1158657347{cursor:pointer;}.minus-icon.disabled.jsx-1158657347,.plus-icon.disabled.jsx-1158657347,.disabled.jsx-1158657347 .minus-icon.jsx-1158657347,.disabled.jsx-1158657347 .plus-icon.jsx-1158657347{opacity:.65;cursor:default;}"
+    styleId="1158657347"
+  />
+  <JSXStyle
+    css="input.__jsx-style-dynamic-selector{text-align:center;-webkit-flex:1;-ms-flex:1;flex:1;-moz-appearance:textfield;}input.__jsx-style-dynamic-selector::-webkit-outer-spin-button,input.__jsx-style-dynamic-selector::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}"
+    dynamic={
+      Array [
+        "center",
+      ]
+    }
+    styleId="2780546048"
+  />
 </div>
+`;
+
+exports[`uses specified fontawesome icons when react-fontawesome and free-solid-svg-icons are installed 1`] = `
+<div
+  className="jsx-3892955365 d-flex flex-nowrap flex-row align-items-center numeric-up-down"
+  step={1}
+>
+  <FontAwesomeIcon
+    border={false}
+    className="minus-icon jsx-1158657347"
+    fixedWidth={false}
+    flip={null}
+    icon={
+      Object {
+        "icon": Array [
+          640,
+          512,
+          Array [],
+          "f503",
+          "M624 208H432c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h192c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-400 48c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z",
+        ],
+        "iconName": "user-minus",
+        "prefix": "fas",
+      }
+    }
+    inverse={false}
+    listItem={false}
+    mask={null}
+    onClick={[Function]}
+    pull={null}
+    pulse={false}
+    rotation={null}
+    size={null}
+    spin={false}
+    symbol={false}
+    title=""
+    transform={null}
+  />
+  <input
+    className="jsx-3892955365 form-control mx-2"
+    type="number"
+    value={0}
+  />
+  <FontAwesomeIcon
+    border={false}
+    className="plus-icon jsx-1158657347"
+    fixedWidth={false}
+    flip={null}
+    icon={
+      Object {
+        "icon": Array [
+          640,
+          512,
+          Array [],
+          "f234",
+          "M624 208h-64v-64c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v64h-64c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h64v64c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-64h64c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-400 48c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z",
+        ],
+        "iconName": "user-plus",
+        "prefix": "fas",
+      }
+    }
+    inverse={false}
+    listItem={false}
+    mask={null}
+    onClick={[Function]}
+    pull={null}
+    pulse={false}
+    rotation={null}
+    size={null}
+    spin={false}
+    symbol={false}
+    title=""
+    transform={null}
+  />
+  <JSXStyle
+    css=".minus-icon.jsx-1158657347,.plus-icon.jsx-1158657347{cursor:pointer;}.minus-icon.disabled.jsx-1158657347,.plus-icon.disabled.jsx-1158657347,.disabled.jsx-1158657347 .minus-icon.jsx-1158657347,.disabled.jsx-1158657347 .plus-icon.jsx-1158657347{opacity:.65;cursor:default;}"
+    styleId="1158657347"
+  />
+  <JSXStyle
+    css="input.__jsx-style-dynamic-selector{text-align:center;-webkit-flex:1;-ms-flex:1;flex:1;-moz-appearance:textfield;}input.__jsx-style-dynamic-selector::-webkit-outer-spin-button,input.__jsx-style-dynamic-selector::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}"
+    dynamic={
+      Array [
+        "center",
+      ]
+    }
+    styleId="2780546048"
+  />
+</div>
+`;
+
+exports[`works when no value or onChange is specified 1`] = `
+<NumericUpDown
+  allowManualInputWithNaNBounds={false}
+  inputAlign="center"
+  max={2}
+  min={1}
+  minusIcon={
+    Object {
+      "icon": Array [
+        512,
+        512,
+        Array [],
+        "f056",
+        "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z",
+      ],
+      "iconName": "minus-circle",
+      "prefix": "fas",
+    }
+  }
+  plusIcon={
+    Object {
+      "icon": Array [
+        512,
+        512,
+        Array [],
+        "f055",
+        "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z",
+      ],
+      "iconName": "plus-circle",
+      "prefix": "fas",
+    }
+  }
+  step={1}
+>
+  <div
+    className="jsx-3892955365 d-flex flex-nowrap flex-row align-items-center numeric-up-down"
+    step={1}
+  >
+    <FontAwesomeIcon
+      border={false}
+      className="minus-icon jsx-1158657347"
+      fixedWidth={false}
+      flip={null}
+      icon={
+        Object {
+          "icon": Array [
+            512,
+            512,
+            Array [],
+            "f056",
+            "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z",
+          ],
+          "iconName": "minus-circle",
+          "prefix": "fas",
+        }
+      }
+      inverse={false}
+      listItem={false}
+      mask={null}
+      onClick={[Function]}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size={null}
+      spin={false}
+      symbol={false}
+      title=""
+      transform={null}
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-minus-circle fa-w-16 minus-icon jsx-1158657347"
+        data-icon="minus-circle"
+        data-prefix="fas"
+        onClick={[Function]}
+        role="img"
+        style={Object {}}
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </FontAwesomeIcon>
+    <input
+      className="jsx-3892955365 form-control mx-2"
+      max={2}
+      min={1}
+      onChange={[Function]}
+      type="number"
+      value=""
+    />
+    <FontAwesomeIcon
+      border={false}
+      className="plus-icon jsx-1158657347"
+      fixedWidth={false}
+      flip={null}
+      icon={
+        Object {
+          "icon": Array [
+            512,
+            512,
+            Array [],
+            "f055",
+            "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z",
+          ],
+          "iconName": "plus-circle",
+          "prefix": "fas",
+        }
+      }
+      inverse={false}
+      listItem={false}
+      mask={null}
+      onClick={[Function]}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size={null}
+      spin={false}
+      symbol={false}
+      title=""
+      transform={null}
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-plus-circle fa-w-16 plus-icon jsx-1158657347"
+        data-icon="plus-circle"
+        data-prefix="fas"
+        onClick={[Function]}
+        role="img"
+        style={Object {}}
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </FontAwesomeIcon>
+    <JSXStyle
+      css=".minus-icon.jsx-1158657347,.plus-icon.jsx-1158657347{cursor:pointer;}.minus-icon.disabled.jsx-1158657347,.plus-icon.disabled.jsx-1158657347,.disabled.jsx-1158657347 .minus-icon.jsx-1158657347,.disabled.jsx-1158657347 .plus-icon.jsx-1158657347{opacity:.65;cursor:default;}"
+      styleId="1158657347"
+    />
+    <JSXStyle
+      css="input.__jsx-style-dynamic-selector{text-align:center;-webkit-flex:1;-ms-flex:1;flex:1;-moz-appearance:textfield;}input.__jsx-style-dynamic-selector::-webkit-outer-spin-button,input.__jsx-style-dynamic-selector::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}"
+      dynamic={
+        Array [
+          "center",
+        ]
+      }
+      styleId="2780546048"
+    />
+  </div>
+</NumericUpDown>
+`;
+
+exports[`works when no value or onChange is specified 2`] = `
+<NumericUpDown
+  allowManualInputWithNaNBounds={false}
+  inputAlign="center"
+  max={2}
+  min={1}
+  minusIcon={
+    Object {
+      "icon": Array [
+        512,
+        512,
+        Array [],
+        "f056",
+        "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z",
+      ],
+      "iconName": "minus-circle",
+      "prefix": "fas",
+    }
+  }
+  plusIcon={
+    Object {
+      "icon": Array [
+        512,
+        512,
+        Array [],
+        "f055",
+        "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z",
+      ],
+      "iconName": "plus-circle",
+      "prefix": "fas",
+    }
+  }
+  step={1}
+>
+  <div
+    className="jsx-3892955365 d-flex flex-nowrap flex-row align-items-center numeric-up-down"
+    step={1}
+  >
+    <FontAwesomeIcon
+      border={false}
+      className="minus-icon jsx-1158657347"
+      fixedWidth={false}
+      flip={null}
+      icon={
+        Object {
+          "icon": Array [
+            512,
+            512,
+            Array [],
+            "f056",
+            "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z",
+          ],
+          "iconName": "minus-circle",
+          "prefix": "fas",
+        }
+      }
+      inverse={false}
+      listItem={false}
+      mask={null}
+      onClick={[Function]}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size={null}
+      spin={false}
+      symbol={false}
+      title=""
+      transform={null}
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-minus-circle fa-w-16 minus-icon jsx-1158657347"
+        data-icon="minus-circle"
+        data-prefix="fas"
+        onClick={[Function]}
+        role="img"
+        style={Object {}}
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </FontAwesomeIcon>
+    <input
+      className="jsx-3892955365 form-control mx-2"
+      max={2}
+      min={1}
+      onChange={[Function]}
+      type="number"
+      value={1}
+    />
+    <FontAwesomeIcon
+      border={false}
+      className="plus-icon jsx-1158657347"
+      fixedWidth={false}
+      flip={null}
+      icon={
+        Object {
+          "icon": Array [
+            512,
+            512,
+            Array [],
+            "f055",
+            "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z",
+          ],
+          "iconName": "plus-circle",
+          "prefix": "fas",
+        }
+      }
+      inverse={false}
+      listItem={false}
+      mask={null}
+      onClick={[Function]}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size={null}
+      spin={false}
+      symbol={false}
+      title=""
+      transform={null}
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-plus-circle fa-w-16 plus-icon jsx-1158657347"
+        data-icon="plus-circle"
+        data-prefix="fas"
+        onClick={[Function]}
+        role="img"
+        style={Object {}}
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </FontAwesomeIcon>
+    <JSXStyle
+      css=".minus-icon.jsx-1158657347,.plus-icon.jsx-1158657347{cursor:pointer;}.minus-icon.disabled.jsx-1158657347,.plus-icon.disabled.jsx-1158657347,.disabled.jsx-1158657347 .minus-icon.jsx-1158657347,.disabled.jsx-1158657347 .plus-icon.jsx-1158657347{opacity:.65;cursor:default;}"
+      styleId="1158657347"
+    />
+    <JSXStyle
+      css="input.__jsx-style-dynamic-selector{text-align:center;-webkit-flex:1;-ms-flex:1;flex:1;-moz-appearance:textfield;}input.__jsx-style-dynamic-selector::-webkit-outer-spin-button,input.__jsx-style-dynamic-selector::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}"
+      dynamic={
+        Array [
+          "center",
+        ]
+      }
+      styleId="2780546048"
+    />
+  </div>
+</NumericUpDown>
+`;
+
+exports[`works when no value or onChange is specified 3`] = `
+<NumericUpDown
+  allowManualInputWithNaNBounds={false}
+  inputAlign="center"
+  max={2}
+  min={1}
+  minusIcon={
+    Object {
+      "icon": Array [
+        512,
+        512,
+        Array [],
+        "f056",
+        "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z",
+      ],
+      "iconName": "minus-circle",
+      "prefix": "fas",
+    }
+  }
+  plusIcon={
+    Object {
+      "icon": Array [
+        512,
+        512,
+        Array [],
+        "f055",
+        "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z",
+      ],
+      "iconName": "plus-circle",
+      "prefix": "fas",
+    }
+  }
+  step={1}
+>
+  <div
+    className="jsx-3892955365 d-flex flex-nowrap flex-row align-items-center numeric-up-down"
+    step={1}
+  >
+    <FontAwesomeIcon
+      border={false}
+      className="minus-icon jsx-1158657347"
+      fixedWidth={false}
+      flip={null}
+      icon={
+        Object {
+          "icon": Array [
+            512,
+            512,
+            Array [],
+            "f056",
+            "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z",
+          ],
+          "iconName": "minus-circle",
+          "prefix": "fas",
+        }
+      }
+      inverse={false}
+      listItem={false}
+      mask={null}
+      onClick={[Function]}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size={null}
+      spin={false}
+      symbol={false}
+      title=""
+      transform={null}
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-minus-circle fa-w-16 minus-icon jsx-1158657347"
+        data-icon="minus-circle"
+        data-prefix="fas"
+        onClick={[Function]}
+        role="img"
+        style={Object {}}
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </FontAwesomeIcon>
+    <input
+      className="jsx-3892955365 form-control mx-2"
+      max={2}
+      min={1}
+      onChange={[Function]}
+      type="number"
+      value={1}
+    />
+    <FontAwesomeIcon
+      border={false}
+      className="plus-icon jsx-1158657347"
+      fixedWidth={false}
+      flip={null}
+      icon={
+        Object {
+          "icon": Array [
+            512,
+            512,
+            Array [],
+            "f055",
+            "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z",
+          ],
+          "iconName": "plus-circle",
+          "prefix": "fas",
+        }
+      }
+      inverse={false}
+      listItem={false}
+      mask={null}
+      onClick={[Function]}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size={null}
+      spin={false}
+      symbol={false}
+      title=""
+      transform={null}
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-plus-circle fa-w-16 plus-icon jsx-1158657347"
+        data-icon="plus-circle"
+        data-prefix="fas"
+        onClick={[Function]}
+        role="img"
+        style={Object {}}
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </FontAwesomeIcon>
+    <JSXStyle
+      css=".minus-icon.jsx-1158657347,.plus-icon.jsx-1158657347{cursor:pointer;}.minus-icon.disabled.jsx-1158657347,.plus-icon.disabled.jsx-1158657347,.disabled.jsx-1158657347 .minus-icon.jsx-1158657347,.disabled.jsx-1158657347 .plus-icon.jsx-1158657347{opacity:.65;cursor:default;}"
+      styleId="1158657347"
+    />
+    <JSXStyle
+      css="input.__jsx-style-dynamic-selector{text-align:center;-webkit-flex:1;-ms-flex:1;flex:1;-moz-appearance:textfield;}input.__jsx-style-dynamic-selector::-webkit-outer-spin-button,input.__jsx-style-dynamic-selector::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}"
+      dynamic={
+        Array [
+          "center",
+        ]
+      }
+      styleId="2780546048"
+    />
+  </div>
+</NumericUpDown>
+`;
+
+exports[`works when no value or onChange is specified 4`] = `
+<NumericUpDown
+  allowManualInputWithNaNBounds={false}
+  inputAlign="center"
+  max={2}
+  min={1}
+  minusIcon={
+    Object {
+      "icon": Array [
+        512,
+        512,
+        Array [],
+        "f056",
+        "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z",
+      ],
+      "iconName": "minus-circle",
+      "prefix": "fas",
+    }
+  }
+  plusIcon={
+    Object {
+      "icon": Array [
+        512,
+        512,
+        Array [],
+        "f055",
+        "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z",
+      ],
+      "iconName": "plus-circle",
+      "prefix": "fas",
+    }
+  }
+  step={1}
+>
+  <div
+    className="jsx-3892955365 d-flex flex-nowrap flex-row align-items-center numeric-up-down"
+    step={1}
+  >
+    <FontAwesomeIcon
+      border={false}
+      className="minus-icon jsx-1158657347"
+      fixedWidth={false}
+      flip={null}
+      icon={
+        Object {
+          "icon": Array [
+            512,
+            512,
+            Array [],
+            "f056",
+            "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z",
+          ],
+          "iconName": "minus-circle",
+          "prefix": "fas",
+        }
+      }
+      inverse={false}
+      listItem={false}
+      mask={null}
+      onClick={[Function]}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size={null}
+      spin={false}
+      symbol={false}
+      title=""
+      transform={null}
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-minus-circle fa-w-16 minus-icon jsx-1158657347"
+        data-icon="minus-circle"
+        data-prefix="fas"
+        onClick={[Function]}
+        role="img"
+        style={Object {}}
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </FontAwesomeIcon>
+    <input
+      className="jsx-3892955365 form-control mx-2"
+      max={2}
+      min={1}
+      onChange={[Function]}
+      type="number"
+      value={2}
+    />
+    <FontAwesomeIcon
+      border={false}
+      className="plus-icon jsx-1158657347"
+      fixedWidth={false}
+      flip={null}
+      icon={
+        Object {
+          "icon": Array [
+            512,
+            512,
+            Array [],
+            "f055",
+            "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z",
+          ],
+          "iconName": "plus-circle",
+          "prefix": "fas",
+        }
+      }
+      inverse={false}
+      listItem={false}
+      mask={null}
+      onClick={[Function]}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size={null}
+      spin={false}
+      symbol={false}
+      title=""
+      transform={null}
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-plus-circle fa-w-16 plus-icon jsx-1158657347"
+        data-icon="plus-circle"
+        data-prefix="fas"
+        onClick={[Function]}
+        role="img"
+        style={Object {}}
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </FontAwesomeIcon>
+    <JSXStyle
+      css=".minus-icon.jsx-1158657347,.plus-icon.jsx-1158657347{cursor:pointer;}.minus-icon.disabled.jsx-1158657347,.plus-icon.disabled.jsx-1158657347,.disabled.jsx-1158657347 .minus-icon.jsx-1158657347,.disabled.jsx-1158657347 .plus-icon.jsx-1158657347{opacity:.65;cursor:default;}"
+      styleId="1158657347"
+    />
+    <JSXStyle
+      css="input.__jsx-style-dynamic-selector{text-align:center;-webkit-flex:1;-ms-flex:1;flex:1;-moz-appearance:textfield;}input.__jsx-style-dynamic-selector::-webkit-outer-spin-button,input.__jsx-style-dynamic-selector::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}"
+      dynamic={
+        Array [
+          "center",
+        ]
+      }
+      styleId="2780546048"
+    />
+  </div>
+</NumericUpDown>
+`;
+
+exports[`works when no value or onChange is specified 5`] = `
+<NumericUpDown
+  allowManualInputWithNaNBounds={false}
+  inputAlign="center"
+  max={2}
+  min={1}
+  minusIcon={
+    Object {
+      "icon": Array [
+        512,
+        512,
+        Array [],
+        "f056",
+        "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z",
+      ],
+      "iconName": "minus-circle",
+      "prefix": "fas",
+    }
+  }
+  plusIcon={
+    Object {
+      "icon": Array [
+        512,
+        512,
+        Array [],
+        "f055",
+        "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z",
+      ],
+      "iconName": "plus-circle",
+      "prefix": "fas",
+    }
+  }
+  step={1}
+>
+  <div
+    className="jsx-3892955365 d-flex flex-nowrap flex-row align-items-center numeric-up-down"
+    step={1}
+  >
+    <FontAwesomeIcon
+      border={false}
+      className="minus-icon jsx-1158657347"
+      fixedWidth={false}
+      flip={null}
+      icon={
+        Object {
+          "icon": Array [
+            512,
+            512,
+            Array [],
+            "f056",
+            "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z",
+          ],
+          "iconName": "minus-circle",
+          "prefix": "fas",
+        }
+      }
+      inverse={false}
+      listItem={false}
+      mask={null}
+      onClick={[Function]}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size={null}
+      spin={false}
+      symbol={false}
+      title=""
+      transform={null}
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-minus-circle fa-w-16 minus-icon jsx-1158657347"
+        data-icon="minus-circle"
+        data-prefix="fas"
+        onClick={[Function]}
+        role="img"
+        style={Object {}}
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </FontAwesomeIcon>
+    <input
+      className="jsx-3892955365 form-control mx-2"
+      max={2}
+      min={1}
+      onChange={[Function]}
+      type="number"
+      value={2}
+    />
+    <FontAwesomeIcon
+      border={false}
+      className="plus-icon jsx-1158657347"
+      fixedWidth={false}
+      flip={null}
+      icon={
+        Object {
+          "icon": Array [
+            512,
+            512,
+            Array [],
+            "f055",
+            "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z",
+          ],
+          "iconName": "plus-circle",
+          "prefix": "fas",
+        }
+      }
+      inverse={false}
+      listItem={false}
+      mask={null}
+      onClick={[Function]}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size={null}
+      spin={false}
+      symbol={false}
+      title=""
+      transform={null}
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-plus-circle fa-w-16 plus-icon jsx-1158657347"
+        data-icon="plus-circle"
+        data-prefix="fas"
+        onClick={[Function]}
+        role="img"
+        style={Object {}}
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </FontAwesomeIcon>
+    <JSXStyle
+      css=".minus-icon.jsx-1158657347,.plus-icon.jsx-1158657347{cursor:pointer;}.minus-icon.disabled.jsx-1158657347,.plus-icon.disabled.jsx-1158657347,.disabled.jsx-1158657347 .minus-icon.jsx-1158657347,.disabled.jsx-1158657347 .plus-icon.jsx-1158657347{opacity:.65;cursor:default;}"
+      styleId="1158657347"
+    />
+    <JSXStyle
+      css="input.__jsx-style-dynamic-selector{text-align:center;-webkit-flex:1;-ms-flex:1;flex:1;-moz-appearance:textfield;}input.__jsx-style-dynamic-selector::-webkit-outer-spin-button,input.__jsx-style-dynamic-selector::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}"
+      dynamic={
+        Array [
+          "center",
+        ]
+      }
+      styleId="2780546048"
+    />
+  </div>
+</NumericUpDown>
+`;
+
+exports[`works when no value or onChange is specified 6`] = `
+<NumericUpDown
+  allowManualInputWithNaNBounds={false}
+  inputAlign="center"
+  max={2}
+  min={1}
+  minusIcon={
+    Object {
+      "icon": Array [
+        512,
+        512,
+        Array [],
+        "f056",
+        "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z",
+      ],
+      "iconName": "minus-circle",
+      "prefix": "fas",
+    }
+  }
+  plusIcon={
+    Object {
+      "icon": Array [
+        512,
+        512,
+        Array [],
+        "f055",
+        "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z",
+      ],
+      "iconName": "plus-circle",
+      "prefix": "fas",
+    }
+  }
+  step={1}
+>
+  <div
+    className="jsx-3892955365 d-flex flex-nowrap flex-row align-items-center numeric-up-down"
+    step={1}
+  >
+    <FontAwesomeIcon
+      border={false}
+      className="minus-icon jsx-1158657347"
+      fixedWidth={false}
+      flip={null}
+      icon={
+        Object {
+          "icon": Array [
+            512,
+            512,
+            Array [],
+            "f056",
+            "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z",
+          ],
+          "iconName": "minus-circle",
+          "prefix": "fas",
+        }
+      }
+      inverse={false}
+      listItem={false}
+      mask={null}
+      onClick={[Function]}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size={null}
+      spin={false}
+      symbol={false}
+      title=""
+      transform={null}
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-minus-circle fa-w-16 minus-icon jsx-1158657347"
+        data-icon="minus-circle"
+        data-prefix="fas"
+        onClick={[Function]}
+        role="img"
+        style={Object {}}
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </FontAwesomeIcon>
+    <input
+      className="jsx-3892955365 form-control mx-2"
+      max={2}
+      min={1}
+      onChange={[Function]}
+      type="number"
+      value={1}
+    />
+    <FontAwesomeIcon
+      border={false}
+      className="plus-icon jsx-1158657347"
+      fixedWidth={false}
+      flip={null}
+      icon={
+        Object {
+          "icon": Array [
+            512,
+            512,
+            Array [],
+            "f055",
+            "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z",
+          ],
+          "iconName": "plus-circle",
+          "prefix": "fas",
+        }
+      }
+      inverse={false}
+      listItem={false}
+      mask={null}
+      onClick={[Function]}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size={null}
+      spin={false}
+      symbol={false}
+      title=""
+      transform={null}
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-plus-circle fa-w-16 plus-icon jsx-1158657347"
+        data-icon="plus-circle"
+        data-prefix="fas"
+        onClick={[Function]}
+        role="img"
+        style={Object {}}
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </FontAwesomeIcon>
+    <JSXStyle
+      css=".minus-icon.jsx-1158657347,.plus-icon.jsx-1158657347{cursor:pointer;}.minus-icon.disabled.jsx-1158657347,.plus-icon.disabled.jsx-1158657347,.disabled.jsx-1158657347 .minus-icon.jsx-1158657347,.disabled.jsx-1158657347 .plus-icon.jsx-1158657347{opacity:.65;cursor:default;}"
+      styleId="1158657347"
+    />
+    <JSXStyle
+      css="input.__jsx-style-dynamic-selector{text-align:center;-webkit-flex:1;-ms-flex:1;flex:1;-moz-appearance:textfield;}input.__jsx-style-dynamic-selector::-webkit-outer-spin-button,input.__jsx-style-dynamic-selector::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}"
+      dynamic={
+        Array [
+          "center",
+        ]
+      }
+      styleId="2780546048"
+    />
+  </div>
+</NumericUpDown>
 `;

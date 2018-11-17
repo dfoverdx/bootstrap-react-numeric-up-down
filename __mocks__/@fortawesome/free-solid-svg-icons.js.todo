@@ -1,0 +1,16 @@
+const mock = jest.genMockFromModule('@fortawesome/free-solid-svg-icons');
+
+function mockIcon(name, unicode = '') {
+    return {
+        name,
+        prefix: 'fas',
+        icon: [1, 1, [], unicode, 'M1,1z']
+    }
+}
+
+mock.faMinusCircle = mockIcon('minus-circle', '-');
+mock.faPlusCircle = mockIcon('plus-circle', '+');
+mock.faUserPlus = mockIcon('user-plus');
+mock.faUserMinus = mockIcon('user-minus');
+
+module.exports = mock;

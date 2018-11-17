@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { FontAwesomeIcon, faMinusCircle, faPlusCircle, mightBeFAIcon } from './fortawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMinusCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { mightBeFAIcon } from './fortawesome';
 import css from 'styled-jsx/css';
 
 const iconDefinitionPropType = PropTypes.oneOfType([
@@ -15,6 +17,22 @@ const iconDefinitionPropType = PropTypes.oneOfType([
     })
 ]);
 
+function sandwich(value, min, max) {
+    return Math.max(min, Math.min(max, value));
+}
+
+function getUVals(props) {
+    let uMin = props.min === undefined ? -Infinity : props.min,
+    uMax = props.max === undefined ? Infinity : props.max,
+    uValue = props.value === undefined ? sandwich(0, uMin, uMax) : props.value;
+
+    return {
+        uMin,
+        uMax,
+        uValue
+    };
+}
+
 export default class NumericUpDown extends PureComponent {
     constructor(props) {
         super(props);
@@ -22,8 +40,11 @@ export default class NumericUpDown extends PureComponent {
         this.input = React.createRef();
         this.recursiveUpdates = 0;
 
+        let { uValue } = getUVals(props);
+
         this.state = {
             targetValue: null,
+            unsetValue: props.value === undefined ? '' : null,
         };
 
         if (props.value < props.min || props.value > props.max) {
@@ -32,6 +53,7 @@ export default class NumericUpDown extends PureComponent {
 
         this._incrementValue = this._incrementValue.bind(this);
         this._decrementValue = this._decrementValue.bind(this);
+        this._setUnsetValue = this._setUnsetValue.bind(this);
     }
 
     componentDidUpdate(oldProps) {
@@ -73,12 +95,14 @@ export default class NumericUpDown extends PureComponent {
                 }
             }
 
+            let { uMin, uMax } = getUVals(this.props);
+
             if (oldMin !== min && min >= target) {
-                this._updateValue(Math.min(min, max));
+                this._updateValue(Math.min(min, uMax));
             } else if (oldMax !== max && max <= target) {
-                this._updateValue(Math.max(max, min));
+                this._updateValue(Math.max(max, uMin));
             } else if (oldMin > oldMax && (min <= value || max >= value)) {
-                if (value < min) {
+                if (value <= min) {
                     this._updateValue(min);
                 } else {
                     this._updateValue(max);
@@ -94,7 +118,9 @@ export default class NumericUpDown extends PureComponent {
 
         if (!this.props.onChange) {
             if (this.props.value === undefined) {
-                this.input.current.value = val;
+                this.setState({
+                    unsetValue: val
+                });
             }
         } else {
             this.recursiveUpdates++;
@@ -103,46 +129,86 @@ export default class NumericUpDown extends PureComponent {
         }
     }
 
-    _incrementValue() {
+    _incrementValue(then, e) {
         if (!this.props.disabled) {
             this.setState({
                 targetValue: null
             });
-            this._updateValue(Math.min(this.props.max, this.props.value + this.props.step));
+
+            let { step } = this.props;
+
+            if (this.props.value === undefined) {
+                let { uValue, uMin, uMax } = getUVals(this.props);
+                if (this.input.current && this.input.current.value === '') {
+                    this._updateValue(sandwich(uValue + step, uMin, uMax));
+                } else if (this.input.current) {
+                    let { unsetValue } = this.state;
+                    unsetValue = unsetValue === '' ? uValue : unsetValue;
+                    this._updateValue(Math.min(unsetValue + step, uMax));
+                } else {
+                    throw new Error('Somehow this.input.current was not set.');
+                }
+            } else {
+                this._updateValue(Math.min(this.props.max, this.props.value + this.props.step));
+            }
+
+            if (then) {
+                then(e);
+            }
         }
     }
 
-    _decrementValue() {
+    _decrementValue(then, e) {
         if (!this.props.disabled) {
             this.setState({
                 targetValue: null
             });
-            this._updateValue(Math.max(this.props.min, this.props.value - this.props.step));
+
+            let { step } = this.props;
+
+            if (this.props.value === undefined) {
+                let { uValue, uMin, uMax } = getUVals(this.props);
+                if (this.input.current && this.input.current.value === '') {
+                    this._updateValue(sandwich(uValue - step, uMin, uMax));
+                } else if (this.input.current) {
+                    let { unsetValue } = this.state;
+                    unsetValue = unsetValue === '' ? uValue : unsetValue;
+                    this._updateValue(Math.max(unsetValue - step, uMin));
+                } else {
+                    throw new Error('Somehow this.input.current was not set.');
+                }
+            } else {
+                this._updateValue(Math.max(this.props.min, this.props.value - step));
+            }
+
+            if (then) {
+                then(e);
+            }
         }
+    }
+
+    _setUnsetValue(e) {
+        this._updateValue(e.target.value);
     }
 
     render() {
         let {
                 iconColor,
-                inputColor,
-                className,
                 minusIcon,
                 plusIcon,
                 inputAlign,
+                inputColor,
+                className,
+
                 allowManualInputWithNaNBounds,
-                ...inputProps
+
+                // input props
+                value, min, max, disabled, onChange,
+
+                ...divProps
             } = this.props,
-            {
-                value,
-                min,
-                max,
-                disabled,
-            } = inputProps,
+            inputProps = { value, min, max, disabled }, // don't include onChange since we call it manually
             { className: iconClass, styles: iconStyles } = getIconStyles(),
-            iconClasses = [
-                iconClass,
-                iconColor && `text-${iconColor}`
-            ],
             divClasses = [
                 'd-flex',
                 'flex-nowrap',
@@ -153,65 +219,20 @@ export default class NumericUpDown extends PureComponent {
                 className,
             ];
 
-        if (!allowManualInputWithNaNBounds && min > max) {
+        if (!allowManualInputWithNaNBounds && min >= max) {
             inputProps.disabled = disabled = true;
         }
 
-        let minusIconClasses = [
-                'minus-icon', 
-                (value <= min || disabled) && 'disabled', 
-                ...iconClasses
-            ],
-            plusIconClasses = [
-                'plus-icon',
-                (value >= max || disabled) && 'disabled',
-                ...iconClasses
-            ];
+        minusIcon = this._createIconBtn(true, minusIcon, iconClass);
+        plusIcon = this._createIconBtn(false, plusIcon, iconClass);
 
-        if (React.isValidElement(minusIcon)) {
-            let props = {
-                className: classnames(minusIcon.props.className, ...minusIconClasses),
-                onClick: this._decrementValue,
-            };
-
-            minusIcon = React.cloneElement(minusIcon, props);
-        } else if (mightBeFAIcon(minusIcon)) {
-            try {
-                let tmp = (
-                    <FontAwesomeIcon icon={minusIcon} onClick={this._decrementValue} 
-                        className={classnames(minusIconClasses)} />
-                );
-                minusIcon = tmp;
-            } catch {}
-        }
-
-        if (minusIcon.constructor === String) {
-            minusIcon = <span onClick={this._decrementValue} className={classnames(minusIconClasses)}>{minusIcon}</span>;
-        }
-
-        if (React.isValidElement(plusIcon)) {
-            let props = {
-                className: classnames(plusIcon.props.className, ...plusIconClasses),
-                onClick: this._incrementValue,
-            };
-
-            plusIcon = React.cloneElement(plusIcon, props);
-        } else if (mightBeFAIcon(plusIcon)) {
-            try {
-                let tmp = (
-                    <FontAwesomeIcon icon={plusIcon} onClick={this._incrementValue}
-                        className={classnames(plusIconClasses)} />
-                );
-                plusIcon = tmp;
-            } catch {}
-        }
-        
-        if (plusIcon.constructor === String) {
-            plusIcon = <span onClick={this._incrementValue} className={classnames(plusIconClasses)}>{plusIcon}</span>;
+        if (value === undefined) {
+            inputProps.value = value === undefined ? this.state.unsetValue : value;
+            inputProps.onChange = this._setUnsetValue;
         }
 
         return (
-        <div className={classnames(divClasses)} {...inputProps}>
+        <div className={classnames(divClasses)} {...divProps}>
             {minusIcon}
             <input className={classnames('form-control mx-2', inputColor && `text-${inputColor}`)} type="number" 
                 {...inputProps} ref={this.input} />
@@ -233,16 +254,75 @@ export default class NumericUpDown extends PureComponent {
         );
     }
 
+    _createIconBtn(isMinus, icon, iconClass) {
+        let {
+                value, min, max, disabled, iconColor
+            } = this.props,
+            iconDisabled = disabled || (isMinus ? value <= min : value >= max),
+            iconClasses = [
+                isMinus ? 'minus-icon' : 'plus-icon',
+                iconClass,
+                iconDisabled && 'disabled'
+            ],
+            onClick = isMinus ? this._decrementValue : this._incrementValue;
+
+        if (iconColor instanceof Object) {
+            iconColor = `text-${iconColor[isMinus ? 'minus' : 'plus']}`;
+        }
+        
+        if (React.isValidElement(icon)) {
+            let props = {
+                className: classnames(icon.props.className, iconColor, ...iconClasses),
+                onClick,
+            };
+
+            if (icon.props.onClick) {
+                props.onClick = onClick.bind(this, icon.props.onClick);
+            }
+
+            return React.cloneElement(icon, props);
+        }
+        
+        if (mightBeFAIcon(icon)) {
+            try {
+                return (
+                    <FontAwesomeIcon icon={icon} onClick={onClick.bind(this, null)} 
+                        className={classnames(iconColor, ...iconClasses)} />
+                );
+            } catch {}
+        }
+
+        if (icon.constructor === String) {
+            iconClasses = iconClasses.concat([
+                'btn',
+                iconColor ? iconColor.replace('text-', 'btn-outline-') : 'btn-outline-secomdary',
+            ]);
+
+            return (
+                <div onClick={onClick.bind(this, null)} className={classNames(iconClasses)}>{icon}</div>
+            );
+        }
+
+        // should never get here, but just in case...
+        return icon;
+    }
+
     static propTypes = {
-        inputColor: PropTypes.string,
+        inputColor: PropTypes.oneOfType([ 
+            PropTypes.string, 
+            PropTypes.shape({
+                minus: PropTypes.string.isRequired,
+                plus: PropTypes.string.isRequired
+            })
+        ]),
         iconColor: PropTypes.string,
+        value: PropTypes.number,
         min: PropTypes.number,
         max: PropTypes.number,
         step: PropTypes.number,
         minusIcon: iconDefinitionPropType.isRequired,
         plusIcon: iconDefinitionPropType.isRequired,
         disabled: PropTypes.bool,
-        value: PropTypes.number,
         onChange: PropTypes.func,
         inputAlign: PropTypes.oneOf(['left', 'center', 'right']),
         allowManualInputWithNaNBounds: PropTypes.bool
@@ -251,11 +331,9 @@ export default class NumericUpDown extends PureComponent {
     static defaultProps = {
         minusIcon: faMinusCircle, // (FontAwesomeIcon && faMinusCircle) ? faMinusCircle : '-',
         plusIcon: faPlusCircle, // (FontAwesomeIcon && faPlusCircle) ? faPlusCircle : '+',
-        min: 0,
-        max: Infinity,
-        step: 1,
         inputAlign: 'center',
         allowManualInputWithNaNBounds: false,
+        step: 1,
     };
 }
 
